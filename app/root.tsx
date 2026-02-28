@@ -26,16 +26,25 @@ export const links: LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
+  { rel: "icon", type: "image/svg+xml", href: "/peepal-leaf-logo.svg" },
+  { rel: "apple-touch-icon", href: "/peepal-leaf-logo.svg" },
+  { rel: "manifest", href: "/site.webmanifest" },
 ];
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Anek.codes App" },
-    { name: "description", content: "Anek.codes Generated Project" },
-    { name: "author", content: "Anek.codes" },
-    { property: "og:title", content: "Anek.codes App" },
-    { property: "og:description", content: "Anek.codes Generated Project" },
+    { title: "IndBase.co | Postgres Development Platform for India" },
+    { name: "description", content: "Join the waitlist for India's self-reliant Postgres development platform." },
+    { name: "author", content: "IndBase.co" },
+    { property: "og:title", content: "IndBase.co | Postgres Development Platform for India" },
+    { property: "og:description", content: "Join the waitlist for India's self-reliant Postgres development platform." },
     { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://indbase.co/postgres-db-india-badge.png" },
+    { property: "og:image:alt", content: "Postgres DB India badge with tricolor elephant emblem" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "IndBase.co | Postgres Development Platform for India" },
+    { name: "twitter:description", content: "Join the waitlist for India's self-reliant Postgres development platform." },
+    { name: "twitter:image", content: "https://indbase.co/postgres-db-india-badge.png" },
   ];
 };
 
