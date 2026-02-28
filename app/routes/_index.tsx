@@ -148,7 +148,7 @@ export default function Index() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mb-12 max-w-2xl text-lg text-slate-600 md:text-xl font-sans"
           >
-            Postgres Development Platform for India users.
+            Postgres Development Platform for Indian users.
           </motion.p>
 
           {/* Waitlist Form Card */}
@@ -300,7 +300,7 @@ export default function Index() {
                 "@type": "WebSite",
                 name: "IndBase.co",
                 url: "https://indbase.co/",
-                description: "Postgres development platform for India users.",
+                description: "Postgres development platform for Indian users.",
                 image: "https://indbase.co/postgres-db-india-badge.png",
               }),
             }}
@@ -308,8 +308,9 @@ export default function Index() {
         </main>
 
         <footer className="py-8 text-center text-sm text-slate-500 px-4">
-          <p className="mb-2">Since Supabase was blocked in India, we are building our own self-reliant database platform.</p>
-          <p>© {new Date().getFullYear()} IndBase.co. Made with <span className="text-red-500">❤️</span> in India.</p>
+          <p className="mb-2">Since Supabase was blocked in India, India is building its own self-reliant database platform.</p>
+          <p>Made with <span className="text-red-500">❤️</span> in India.</p>
+          <p>© {new Date().getFullYear()} Snorkell Associates and Co.</p>          
         </footer>
       </div>
     </div>
