@@ -1,8 +1,8 @@
-import { json, type ActionFunctionArgs, type MetaFunction } from "@remix-run/node";
+import { json, type ActionFunctionArgs, type LinksFunction, type MetaFunction } from "@remix-run/node";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Loader2, Check, ArrowRight, Database } from "lucide-react";
+import { Loader2, Check, ArrowRight } from "lucide-react";
 import { getDb } from "~/lib/db.server";
 import { waitlist } from "../../db/schema";
 import { eq } from "drizzle-orm";
@@ -12,10 +12,25 @@ import { Badge } from "~/components/ui/badge";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "IndBase.co - Postgres Development Platform for India users" },
-    { name: "description", content: "Join the waitlist for India's self-reliant Postgres Development Platform." },
+    { title: "IndBase.co | Postgres Development Platform for India" },
+    { name: "description", content: "Join the IndBase waitlist for India's self-reliant Postgres development platform." },
+    { name: "keywords", content: "postgres india, database india, waitlist, indbase, db india" },
+    { property: "og:title", content: "IndBase.co | Postgres Development Platform for India" },
+    { property: "og:description", content: "Join the IndBase waitlist for India's self-reliant Postgres development platform." },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://indbase.co/" },
+    { property: "og:image", content: "https://indbase.co/postgres-db-india-badge.png" },
+    { property: "og:image:alt", content: "Postgres DB India badge with tricolor elephant emblem" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "IndBase.co | Postgres Development Platform for India" },
+    { name: "twitter:description", content: "Join the IndBase waitlist for India's self-reliant Postgres development platform." },
+    { name: "twitter:image", content: "https://indbase.co/postgres-db-india-badge.png" },
   ];
 };
+
+export const links: LinksFunction = () => [
+  { rel: "canonical", href: "https://indbase.co/" },
+];
 
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
@@ -90,9 +105,12 @@ export default function Index() {
         {/* Header / Nav */}
         <header className="flex items-center justify-between py-6">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-white shadow-md">
-              <Database className="h-4 w-4" />
-            </div>
+            <img
+              src="/peepal-leaf-logo.svg"
+              alt="IndBase logo"
+              className="h-8 w-8 rounded-lg object-cover shadow-md"
+              loading="eager"
+            />
             <span className="text-xl font-bold tracking-tight text-slate-900 font-ibm">IndBase.co</span>
           </div>
           {/* Nav removed as requested */}
@@ -216,6 +234,42 @@ export default function Index() {
             </div>
           </motion.div>
 
+          <motion.section
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="mt-16 w-full max-w-4xl"
+            aria-labelledby="india-badge-title"
+          >
+            <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white/60 p-6 shadow-xl shadow-indigo-100/50 backdrop-blur-md sm:p-8">
+              <div className="absolute -top-20 right-0 h-44 w-44 rounded-full bg-indigo-100/70 blur-3xl" />
+              <div className="absolute -bottom-20 left-0 h-44 w-44 rounded-full bg-blue-100/70 blur-3xl" />
+
+              <div className="relative grid gap-6 md:grid-cols-[1.1fr_1fr] md:items-center">
+                <div className="text-left">
+                  <p className="mb-3 inline-flex rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-indigo-700">
+                    India-ready identity
+                  </p>
+                  <h2 id="india-badge-title" className="mb-3 text-3xl font-bold leading-tight text-slate-900 font-ibm sm:text-4xl">
+                    Postgres DB India
+                  </h2>
+                  <p className="text-slate-600">
+                    A dedicated India-first experience for builders who want local reliability, clarity, and ownership.
+                  </p>
+                </div>
+
+                <div className="mx-auto w-full max-w-sm">
+                  <img
+                    src="/postgres-db-india-badge.png"
+                    alt="Postgres DB India emblem showing an elephant in Indian tricolor"
+                    className="h-auto w-full rounded-2xl border border-slate-200 bg-white p-2 shadow-lg shadow-slate-300/30"
+                    loading="eager"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.section>
+
           {/* Features Grid */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
@@ -238,6 +292,20 @@ export default function Index() {
               </div>
             ))}
           </motion.div>
+
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "IndBase.co",
+                url: "https://indbase.co/",
+                description: "Postgres development platform for India users.",
+                image: "https://indbase.co/postgres-db-india-badge.png",
+              }),
+            }}
+          />
         </main>
 
         <footer className="py-8 text-center text-sm text-slate-500 px-4">
