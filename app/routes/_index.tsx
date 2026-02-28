@@ -12,8 +12,8 @@ import { Badge } from "~/components/ui/badge";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "IndiaDB - The Database for Vibe Coders" },
-    { name: "description", content: "Join the waitlist for India's first community-driven Database-as-a-Service." },
+    { title: "IndBase.co - Postgres Development Platform for India users" },
+    { name: "description", content: "Join the waitlist for India's self-reliant Postgres Development Platform." },
   ];
 };
 
@@ -93,15 +93,9 @@ export default function Index() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-white shadow-md">
               <Database className="h-4 w-4" />
             </div>
-            <span className="text-xl font-bold tracking-tight text-slate-900 font-ibm">IndiaDB</span>
+            <span className="text-xl font-bold tracking-tight text-slate-900 font-ibm">IndBase.co</span>
           </div>
-          <nav className="hidden md:block">
-            <ul className="flex gap-8 text-sm font-medium text-slate-600">
-              <li className="hover:text-indigo-600 transition-colors cursor-pointer">Manifesto</li>
-              <li className="hover:text-indigo-600 transition-colors cursor-pointer">Pricing</li>
-              <li className="hover:text-indigo-600 transition-colors cursor-pointer">Blog</li>
-            </ul>
-          </nav>
+          {/* Nav removed as requested */}
         </header>
 
         {/* Main Content */}
@@ -137,8 +131,7 @@ export default function Index() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mb-12 max-w-2xl text-lg text-slate-600 md:text-xl font-sans"
           >
-            Simple, scalable, and built with love for the Indian ecosystem. 
-            Empowering developers and no-code creators to build the future, faster.
+            Postgres Development Platform for India users.
           </motion.p>
 
           {/* Waitlist Form Card */}
@@ -247,8 +240,9 @@ export default function Index() {
           </motion.div>
         </main>
 
-        <footer className="py-8 text-center text-sm text-slate-500">
-          <p>© {new Date().getFullYear()} IndiaDB. Made with <span className="text-red-500">❤️</span> in India.</p>
+        <footer className="py-8 text-center text-sm text-slate-500 px-4">
+          <p className="mb-2">Since Supabase was blocked in India, we are building our own self-reliant database platform.</p>
+          <p>© {new Date().getFullYear()} IndBase.co. Made with <span className="text-red-500">❤️</span> in India.</p>
         </footer>
       </div>
     </div>
