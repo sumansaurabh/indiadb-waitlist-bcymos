@@ -3,9 +3,7 @@ import { Form, useActionData, useNavigation } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Loader2, Check, ArrowRight } from "lucide-react";
-import { getDb } from "~/lib/db.server";
-import { waitlist } from "../../db/schema";
-import { eq } from "drizzle-orm";
+import { env } from "~/lib/env.server";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { Badge } from "~/components/ui/badge";
@@ -41,18 +39,30 @@ export async function action({ request }: ActionFunctionArgs) {
   }
 
   try {
-    const db = await getDb();
-    if (!db) throw new Error("Database not initialized");
+    const response = await fetch(env.WAITLIST_API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        src: env.WAITLIST_SRC,
+      }),
+    });
 
-    // Check if email already exists
-    const existing = await db.select().from(waitlist).where(eq(waitlist.email, email));
-    
-    if (existing.length > 0) {
-       return json({ success: true, message: "You're already on the list! We'll be in touch soon." });
+    if (response.ok) {
+      return json({ success: true, message: "Welcome to the community! You've been added to the waitlist." });
     }
 
-    await db.insert(waitlist).values({ email });
-    return json({ success: true, message: "Welcome to the community! You've been added to the waitlist." });
+    const errorText = await response.text();
+    const normalizedErrorText = errorText.toLowerCase();
+
+    if (response.status === 409 || normalizedErrorText.includes("already")) {
+      return json({ success: true, message: "You're already on the list! We'll be in touch soon." });
+    }
+
+    console.error("Waitlist API error:", response.status, errorText);
+    return json({ error: "Unable to join waitlist right now. Please try again.", success: false }, { status: 502 });
   } catch (error) {
     console.error("Waitlist error:", error);
     return json({ error: "Something went wrong. Please try again.", success: false }, { status: 500 });

@@ -41,9 +41,9 @@ export const env = {
   PORT: getEnv("PORT") || "5173",
   PUBLIC_URL: getEnv("PUBLIC_URL") || "http://localhost:5173",
 
-  // Database (optional - only needed if using database features)
-  DATABASE_URL: getEnv("DATABASE_URL"),
-  DIRECT_DATABASE_URL: getEnv("DIRECT_DATABASE_URL"),
+  // Waitlist provider
+  WAITLIST_API_URL: getEnv("WAITLIST_API_URL") || "https://api.bareuptime.co/subscriber",
+  WAITLIST_SRC: getEnv("WAITLIST_SRC") || "indbase",
 
   // Security
   SESSION_SECRET: getEnv("SESSION_SECRET") || "dev-secret-change-in-production",
