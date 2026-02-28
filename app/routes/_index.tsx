@@ -102,10 +102,10 @@ export default function Index() {
   ];
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-white text-slate-900 selection:bg-indigo-100 selection:text-indigo-900 font-sans">
+    <div className="relative min-h-screen w-full overflow-hidden bg-white text-slate-900 selection:bg-amber-100 selection:text-amber-900 font-sans">
       {/* Background Gradients - Adjusted for White Theme */}
-      <div className="absolute top-[-20%] left-[-10%] h-[600px] w-[600px] rounded-full bg-indigo-100/60 blur-[100px]" />
-      <div className="absolute bottom-[-20%] right-[-10%] h-[600px] w-[600px] rounded-full bg-blue-100/60 blur-[100px]" />
+      <div className="absolute top-[-20%] left-[-10%] h-[600px] w-[600px] rounded-full bg-amber-50/60 blur-[100px]" />
+      <div className="absolute bottom-[-20%] right-[-10%] h-[600px] w-[600px] rounded-full bg-amber-100/60 blur-[100px]" />
       <div className="absolute top-[40%] left-[50%] h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-violet-100/50 blur-[80px]" />
 
       {/* Grid Pattern Overlay - Darker for visibility on white */}
@@ -118,7 +118,7 @@ export default function Index() {
             <img
               src="/peepal-leaf-logo.svg"
               alt="IndBase logo"
-              className="h-8 w-8 rounded-lg object-cover shadow-md"
+              className="h-8 w-8 rounded-lg object-contain shadow-md"
               loading="eager"
             />
             <span className="text-xl font-bold tracking-tight text-slate-900 font-ibm">IndBase.co</span>
@@ -129,17 +129,6 @@ export default function Index() {
         {/* Main Content */}
         <main className="flex flex-1 flex-col items-center justify-center py-12 md:py-24 text-center">
           
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
-          >
-            <Badge variant="secondary" className="bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border-indigo-200 px-4 py-1.5 text-sm backdrop-blur-md shadow-sm">
-              <span className="mr-2 inline-block h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-              Early Access for Vibe Coders
-            </Badge>
-          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -148,7 +137,7 @@ export default function Index() {
             className="mb-6 max-w-4xl text-6xl font-bold tracking-tight text-slate-900 sm:text-7xl md:text-8xl lg:text-9xl font-ibm leading-[0.9]"
           >
             Database for <br className="hidden sm:block" />
-            <span className="text-indigo-600">
+            <span className="text-amber-700">
               India's Builders
             </span>
           </motion.h1>
@@ -169,7 +158,7 @@ export default function Index() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="w-full max-w-md"
           >
-            <div className="relative overflow-hidden rounded-2xl bg-white/70 p-1 shadow-2xl shadow-indigo-200/50 backdrop-blur-xl border border-slate-200 ring-1 ring-white/50">
+            <div className="relative overflow-hidden rounded-2xl bg-white/70 p-1 shadow-2xl shadow-amber-100/50 backdrop-blur-xl border border-slate-200 ring-1 ring-white/50">
               <div className="rounded-xl bg-white/50 p-6 md:p-8">
                 {success ? (
                   <motion.div
@@ -186,7 +175,7 @@ export default function Index() {
                     </p>
                     <Button 
                       variant="ghost" 
-                      className="mt-2 text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50"
+                      className="mt-2 text-amber-700 hover:text-amber-800 hover:bg-amber-50"
                       onClick={() => setSuccess(false)}
                     >
                       Add another email
@@ -208,7 +197,7 @@ export default function Index() {
                             type="email"
                             name="email"
                             placeholder="vibe.coder@india.dev"
-                            className="h-12 border-slate-200 bg-white pl-4 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:ring-indigo-500/20 shadow-sm"
+                            className="h-12 border-slate-200 bg-white pl-4 text-slate-900 placeholder:text-slate-400 focus:border-amber-400 focus:ring-amber-400/20 shadow-sm"
                             required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -217,7 +206,7 @@ export default function Index() {
                       </div>
                       <Button
                         type="submit"
-                        className="h-12 w-full bg-indigo-600 text-white shadow-lg shadow-indigo-500/20 transition-all hover:bg-indigo-700 hover:scale-[1.02] active:scale-[0.98] font-medium"
+                        className="h-12 w-full bg-stone-600 text-white shadow-lg shadow-stone-300/30 transition-all hover:bg-stone-700 hover:scale-[1.02] active:scale-[0.98] font-medium"
                         disabled={isSubmitting}
                       >
                         {isSubmitting ? (
@@ -251,13 +240,13 @@ export default function Index() {
             className="mt-16 w-full max-w-4xl"
             aria-labelledby="india-badge-title"
           >
-            <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white/60 p-6 shadow-xl shadow-indigo-100/50 backdrop-blur-md sm:p-8">
-              <div className="absolute -top-20 right-0 h-44 w-44 rounded-full bg-indigo-100/70 blur-3xl" />
-              <div className="absolute -bottom-20 left-0 h-44 w-44 rounded-full bg-blue-100/70 blur-3xl" />
+            <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white/60 p-6 shadow-xl shadow-amber-50/50 backdrop-blur-md sm:p-8">
+              <div className="absolute -top-20 right-0 h-44 w-44 rounded-full bg-amber-50/70 blur-3xl" />
+              <div className="absolute -bottom-20 left-0 h-44 w-44 rounded-full bg-amber-100/70 blur-3xl" />
 
               <div className="relative grid gap-6 md:grid-cols-[1.1fr_1fr] md:items-center">
                 <div className="text-left">
-                  <p className="mb-3 inline-flex rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-indigo-700">
+                  <p className="mb-3 inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-700">
                     India-ready identity
                   </p>
                   <h2 id="india-badge-title" className="mb-3 text-3xl font-bold leading-tight text-slate-900 font-ibm sm:text-4xl">
@@ -290,7 +279,7 @@ export default function Index() {
             {features.map((feature, i) => (
               <div 
                 key={i} 
-                className="group relative overflow-hidden rounded-2xl bg-white/40 p-6 backdrop-blur-sm border border-slate-200 transition-all hover:bg-white/60 hover:shadow-xl hover:shadow-indigo-100/50 hover:-translate-y-1"
+                className="group relative overflow-hidden rounded-2xl bg-white/40 p-6 backdrop-blur-sm border border-slate-200 transition-all hover:bg-white/60 hover:shadow-xl hover:shadow-amber-50/50 hover:-translate-y-1"
               >
                 <div className="mb-4 text-4xl">
                   {feature.emoji}
