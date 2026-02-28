@@ -1,0 +1,60 @@
+graph TB
+    subgraph Client["Client Layer"]
+        Browser[Web Browser]
+    end
+
+    subgraph Frontend["Frontend - Remix Application"]
+        Router[Remix Router]
+        Routes[Routes Layer]
+        Components[UI Components]
+        Hooks[Custom Hooks]
+        Utils[Utilities]
+    end
+
+    subgraph State["State Management"]
+        ReactQuery[TanStack Query<br/>QueryClient]
+        LocalState[React State]
+    end
+
+    subgraph UI["UI Framework"]
+        RadixUI[Radix UI Components]
+        Tailwind[Tailwind CSS]
+        Theming[Theme System]
+    end
+
+    subgraph Build["Build Tools"]
+        Vite[Vite]
+        TypeScript[TypeScript Compiler]
+        PostCSS[PostCSS + Tailwind]
+    end
+
+    subgraph API["API Layer"]
+        HealthCheck[Health Check API]
+        FutureAPIs[Future API Routes]
+    end
+
+    Browser -->|HTTP Request| Router
+    Router --> Routes
+    Routes --> Components
+    Components --> RadixUI
+    Components --> Hooks
+    Components --> ReactQuery
+    Hooks --> Utils
+
+    Routes --> API
+
+    Tailwind --> Components
+    Theming --> Components
+
+    TypeScript -.->|Type Checking| Components
+    TypeScript -.->|Type Checking| Routes
+    TypeScript -.->|Type Checking| Hooks
+
+    Vite -.->|Build Process| Frontend
+    PostCSS -.->|Style Processing| Tailwind
+
+    style Frontend fill:#e1f5ff
+    style State fill:#fff4e1
+    style UI fill:#f0e1ff
+    style Build fill:#e1ffe1
+    style API fill:#ffe1e1

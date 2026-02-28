@@ -1,0 +1,38 @@
+node_modules
+build
+.cache
+dist
+
+# Git
+.git
+.gitignore
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode
+.idea
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# CI/CD
+.github
+
+# Docs
+docs
+*.md
+!README.md
+
+# Database local files
+*.db
+*.db-journal

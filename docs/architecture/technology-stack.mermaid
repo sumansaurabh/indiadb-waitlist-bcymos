@@ -1,0 +1,83 @@
+graph TB
+    subgraph Frontend["Frontend Framework"]
+        React[React 18.3.1<br/>UI Library]
+        Remix[Remix 2.15.2<br/>Full-stack Framework]
+    end
+
+    subgraph State["State & Data"]
+        TanStack[TanStack Query 5.83<br/>Server State Management]
+        ReactHookForm[React Hook Form 7.61<br/>Form Management]
+        Zod[Zod 3.25<br/>Schema Validation]
+    end
+
+    subgraph UI["UI Components & Styling"]
+        RadixUI[Radix UI<br/>Accessible Components]
+        Tailwind[Tailwind CSS 3.4<br/>Utility-First CSS]
+        CVA[Class Variance Authority<br/>Component Variants]
+        Lucide[Lucide React<br/>Icon Library]
+    end
+
+    subgraph Build["Build & Dev Tools"]
+        Vite[Vite 5.4<br/>Build Tool]
+        TypeScript[TypeScript 5.8<br/>Type Safety]
+        ESLint[ESLint 9.32<br/>Code Linting]
+        PostCSS[PostCSS<br/>CSS Processing]
+    end
+
+    subgraph Testing["Testing"]
+        Vitest[Vitest 3.2<br/>Unit Testing]
+        TestingLibrary[Testing Library<br/>React Testing]
+        JSDOM[JSDOM<br/>DOM Simulation]
+    end
+
+    subgraph Additional["Additional Libraries"]
+        DateFns[date-fns 3.6<br/>Date Utilities]
+        Recharts[Recharts 2.15<br/>Charts]
+        Embla[Embla Carousel<br/>Carousel Component]
+        Sonner[Sonner<br/>Toast Notifications]
+        NextThemes[next-themes<br/>Theme Management]
+    end
+
+    subgraph Runtime["Runtime & Package Management"]
+        Node[Node.js 20.0.0+<br/>JavaScript Runtime]
+        Bun[Bun<br/>Fast Package Install]
+        PNPM[PNPM<br/>Package Scripts]
+    end
+
+    React --> Remix
+    Remix --> Vite
+
+    TanStack --> React
+    ReactHookForm --> React
+    Zod --> ReactHookForm
+
+    RadixUI --> React
+    Tailwind --> Vite
+    CVA --> Tailwind
+    Lucide --> React
+
+    TypeScript --> Vite
+    ESLint --> TypeScript
+    PostCSS --> Tailwind
+
+    Vitest --> React
+    TestingLibrary --> Vitest
+    JSDOM --> Vitest
+
+    DateFns --> React
+    Recharts --> React
+    Embla --> React
+    Sonner --> React
+    NextThemes --> React
+
+    Node --> Remix
+    Bun -.->|install| Node
+    PNPM -.->|scripts| Node
+
+    style Frontend fill:#61dafb
+    style State fill:#ff4785
+    style UI fill:#38bdf8
+    style Build fill:#646cff
+    style Testing fill:#6da13f
+    style Additional fill:#fbbf24
+    style Runtime fill:#339933

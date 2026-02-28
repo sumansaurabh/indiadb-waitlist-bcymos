@@ -1,0 +1,36 @@
+sequenceDiagram
+    participant Browser
+    participant RemixRouter
+    participant Route
+    participant Component
+    participant ReactQuery
+    participant API
+    participant State
+
+    Browser->>RemixRouter: Navigate to URL
+    RemixRouter->>Route: Load Route Component
+    Route->>Component: Render UI Components
+
+    alt Data Fetching Required
+        Component->>ReactQuery: useQuery Hook
+        ReactQuery->>API: Fetch Data
+        API-->>ReactQuery: Return Response
+        ReactQuery->>State: Cache Response
+        ReactQuery-->>Component: Provide Data
+    end
+
+    Component->>Component: Local State Updates
+
+    alt User Interaction
+        Browser->>Component: User Action
+        Component->>ReactQuery: useMutation Hook
+        ReactQuery->>API: Send Mutation
+        API-->>ReactQuery: Success/Error
+        ReactQuery->>State: Update Cache
+        ReactQuery-->>Component: Update UI
+    end
+
+    Component-->>Browser: Render Updated UI
+
+    Note over ReactQuery,State: TanStack Query manages<br/>caching and synchronization
+    Note over Component: Components use Radix UI<br/>and Tailwind styling

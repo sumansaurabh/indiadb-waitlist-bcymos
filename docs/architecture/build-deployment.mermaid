@@ -1,0 +1,67 @@
+graph LR
+    subgraph Development["Development Phase"]
+        Source[Source Code<br/>TypeScript + React]
+        DevServer[Vite Dev Server<br/>pnpm run dev]
+        HMR[Hot Module Reload]
+    end
+
+    subgraph BuildProcess["Build Process"]
+        TypeCheck[Type Checking<br/>pnpm run typecheck]
+        Lint[ESLint<br/>pnpm run lint]
+        Build[Vite Build<br/>pnpm run build]
+        RemixCompiler[Remix Compiler]
+    end
+
+    subgraph Testing["Testing"]
+        UnitTests[Vitest Tests<br/>pnpm run test]
+        TestWatch[Test Watch Mode<br/>pnpm run test:watch]
+    end
+
+    subgraph Output["Build Output"]
+        ClientBundle[Client Bundle<br/>JavaScript + CSS]
+        ServerBundle[Server Bundle<br/>Node.js]
+        Assets[Static Assets<br/>public/]
+    end
+
+    subgraph Production["Production"]
+        RemixServe[Remix Serve<br/>pnpm run start]
+        Server[Node.js Server<br/>20.0.0+]
+    end
+
+    subgraph PackageManagement["Package Management"]
+        Install[bun install<br/>Fast Installation]
+        Scripts[pnpm scripts<br/>Development Tasks]
+    end
+
+    Source --> DevServer
+    DevServer --> HMR
+    HMR -.->|Live Updates| Source
+
+    Source --> TypeCheck
+    Source --> Lint
+    TypeCheck --> Build
+    Lint --> Build
+
+    Source --> UnitTests
+    UnitTests --> TestWatch
+
+    Build --> RemixCompiler
+    RemixCompiler --> ClientBundle
+    RemixCompiler --> ServerBundle
+    RemixCompiler --> Assets
+
+    ClientBundle --> RemixServe
+    ServerBundle --> RemixServe
+    Assets --> RemixServe
+    RemixServe --> Server
+
+    Install -.->|Dependencies| Source
+    Scripts -.->|Commands| Development
+    Scripts -.->|Commands| BuildProcess
+
+    style Development fill:#e1f5ff
+    style BuildProcess fill:#fff4e1
+    style Testing fill:#f0e1ff
+    style Output fill:#e1ffe1
+    style Production fill:#ffe1e1
+    style PackageManagement fill:#ffe1f5

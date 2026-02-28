@@ -1,0 +1,62 @@
+graph TB
+    Root[Root Component<br/>app/root.tsx]
+    Layout[Layout Wrapper]
+    Providers[Context Providers]
+
+    subgraph Providers
+        QueryProvider[QueryClientProvider<br/>TanStack Query]
+        TooltipProvider[TooltipProvider<br/>Radix UI]
+        ToasterComp[Toaster Components]
+    end
+
+    Outlet[Outlet<br/>Route Content]
+
+    subgraph Routes["Route Components"]
+        Index[Index Route<br/>_index.tsx]
+        CatchAll[Catch All Route<br/>$.tsx]
+        HealthAPI[Health API<br/>api.health.tsx]
+    end
+
+    subgraph UIComponents["UI Components Library"]
+        Navigation[NavLink]
+        Radix[50+ Radix UI Components]
+
+        subgraph Radix
+            Accordion[Accordion]
+            Dialog[Dialog]
+            Dropdown[Dropdown Menu]
+            Toast[Toast]
+            Tabs[Tabs]
+            Card[Card]
+            Button[Button]
+            Input[Input]
+            Others[... 40+ more]
+        end
+    end
+
+    subgraph CustomHooks["Custom Hooks"]
+        UseMobile[useMobile]
+        UseToast[useToast]
+    end
+
+    subgraph Utilities["Utilities"]
+        Utils[cn utility<br/>Class merging]
+    end
+
+    Root --> Layout
+    Layout --> Providers
+    Providers --> Outlet
+    Outlet --> Routes
+
+    Index --> UIComponents
+    CatchAll --> UIComponents
+
+    UIComponents --> CustomHooks
+    UIComponents --> Utilities
+
+    style Root fill:#ff9999
+    style Providers fill:#99ccff
+    style Routes fill:#99ff99
+    style UIComponents fill:#ffcc99
+    style CustomHooks fill:#cc99ff
+    style Utilities fill:#ffff99

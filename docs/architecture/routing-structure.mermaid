@@ -1,0 +1,36 @@
+graph TB
+    Root[Root Layout<br/>app/root.tsx]
+
+    subgraph Routes["Application Routes"]
+        Index[Index Route<br/>'/' - _index.tsx<br/>Main Landing Page]
+        CatchAll[Catch All Route<br/>'*' - $.tsx<br/>404 Handler]
+        HealthAPI[Health Check<br/>'/api/health' - api.health.tsx<br/>System Health Status]
+    end
+
+    subgraph Layout["Layout Features"]
+        Meta[Meta Tags & SEO]
+        Links[External Links<br/>Google Fonts]
+        Scripts[Client Scripts]
+        ScrollRest[Scroll Restoration]
+        ErrorBound[Error Boundary]
+    end
+
+    Root --> Routes
+    Root --> Layout
+
+    Index -.->|User Visits| Welcome[Welcome Screen]
+    CatchAll -.->|404 Error| NotFound[404 Page]
+    HealthAPI -.->|API Call| HealthStatus[Health Status JSON]
+
+    ErrorBound -.->|On Error| ErrorPage[Error Display]
+
+    style Root fill:#ff9999
+    style Routes fill:#99ccff
+    style Layout fill:#99ff99
+    style Welcome fill:#ffcc99
+    style NotFound fill:#cc99ff
+    style HealthStatus fill:#ffff99
+    style ErrorPage fill:#ff99cc
+
+    classDef apiRoute fill:#ffe1e1,stroke:#ff0000
+    class HealthAPI apiRoute
