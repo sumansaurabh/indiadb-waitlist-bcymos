@@ -10,24 +10,24 @@ import { Badge } from "~/components/ui/badge";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "IndBase.co | Postgres Development Platform for India" },
+    { title: "IndBase.in | Postgres Development Platform for India" },
     { name: "description", content: "Join the IndBase waitlist for India's self-reliant Postgres development platform." },
     { name: "keywords", content: "postgres india, database india, waitlist, indbase, db india" },
-    { property: "og:title", content: "IndBase.co | Postgres Development Platform for India" },
+    { property: "og:title", content: "IndBase.in | Postgres Development Platform for India" },
     { property: "og:description", content: "Join the IndBase waitlist for India's self-reliant Postgres development platform." },
     { property: "og:type", content: "website" },
-    { property: "og:url", content: "https://indbase.co/" },
-    { property: "og:image", content: "https://indbase.co/postgres-db-india-badge.png" },
+    { property: "og:url", content: "https://IndBase.in/" },
+    { property: "og:image", content: "https://IndBase.in/postgres-db-india-badge.png" },
     { property: "og:image:alt", content: "Postgres DB India badge with tricolor elephant emblem" },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "IndBase.co | Postgres Development Platform for India" },
+    { name: "twitter:title", content: "IndBase.in | Postgres Development Platform for India" },
     { name: "twitter:description", content: "Join the IndBase waitlist for India's self-reliant Postgres development platform." },
-    { name: "twitter:image", content: "https://indbase.co/postgres-db-india-badge.png" },
+    { name: "twitter:image", content: "https://IndBase.in/postgres-db-india-badge.png" },
   ];
 };
 
 export const links: LinksFunction = () => [
-  { rel: "canonical", href: "https://indbase.co/" },
+  { rel: "canonical", href: "https://IndBase.in/" },
 ];
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -121,7 +121,7 @@ export default function Index() {
               className="h-8 w-8 rounded-lg object-contain shadow-md"
               loading="eager"
             />
-            <span className="text-xl font-bold tracking-tight text-slate-900 font-ibm">IndBase.co</span>
+            <span className="text-xl font-bold tracking-tight text-slate-900 font-ibm">IndBase.in</span>
           </div>
           {/* Nav removed as requested */}
         </header>
@@ -298,10 +298,10 @@ export default function Index() {
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "WebSite",
-                name: "IndBase.co",
-                url: "https://indbase.co/",
+                name: "IndBase.in",
+                url: "https://IndBase.in/",
                 description: "Postgres development platform for Indian users.",
-                image: "https://indbase.co/postgres-db-india-badge.png",
+                image: "https://IndBase.in/postgres-db-india-badge.png",
               }),
             }}
           />

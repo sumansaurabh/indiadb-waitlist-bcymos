@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://indbase.co/sitemap.xml
-Host: indbase.co
+Sitemap: https://IndBase.in/sitemap.xml
+Host: IndBase.in

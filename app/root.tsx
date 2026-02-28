@@ -34,18 +34,18 @@ export const links: LinksFunction = () => [
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "IndBase.co | Postgres Development Platform for India" },
+    { title: "IndBase.in | Postgres Development Platform for India" },
     { name: "description", content: "Join the waitlist for India's self-reliant Postgres development platform." },
-    { name: "author", content: "IndBase.co" },
-    { property: "og:title", content: "IndBase.co | Postgres Development Platform for India" },
+    { name: "author", content: "IndBase.in" },
+    { property: "og:title", content: "IndBase.in | Postgres Development Platform for India" },
     { property: "og:description", content: "Join the waitlist for India's self-reliant Postgres development platform." },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "https://indbase.co/postgres-db-india-badge.png" },
+    { property: "og:image", content: "https://IndBase.in/postgres-db-india-badge.png" },
     { property: "og:image:alt", content: "Postgres DB India badge with tricolor elephant emblem" },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "IndBase.co | Postgres Development Platform for India" },
+    { name: "twitter:title", content: "IndBase.in | Postgres Development Platform for India" },
     { name: "twitter:description", content: "Join the waitlist for India's self-reliant Postgres development platform." },
-    { name: "twitter:image", content: "https://indbase.co/postgres-db-india-badge.png" },
+    { name: "twitter:image", content: "https://IndBase.in/postgres-db-india-badge.png" },
   ];
 };
 
