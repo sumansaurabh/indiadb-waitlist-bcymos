@@ -6,6 +6,7 @@ import { Loader2, Check, ArrowRight } from "lucide-react";
 import { env } from "~/lib/env.server";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
+import { ProductHuntEmbed } from "~/components/product-hunt-embed";
 
 export const meta: MetaFunction = () => {
   return [
@@ -220,6 +221,16 @@ export default function Index() {
                 )}
               </div>
             </div>
+          </motion.div>
+
+          {/* Product Hunt Embed */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-12 flex justify-center w-full"
+          >
+            <ProductHuntEmbed />
           </motion.div>
 
           <motion.section
