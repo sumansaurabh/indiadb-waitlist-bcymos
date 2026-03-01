@@ -266,7 +266,7 @@ export default function Index() {
             className="mt-20 w-full max-w-4xl rounded-3xl border border-slate-200 bg-white/55 p-6 shadow-xl shadow-amber-50/40 backdrop-blur-md sm:p-8"
           >
             <h3 className="text-left text-2xl font-bold text-slate-900 font-ibm sm:text-3xl">
-              Built for India from day one
+              Trying to build for India from day one
             </h3>
             <ul className="mt-6 space-y-3 text-left">
               {indiaBuilderPriorities.map((priority) => (
