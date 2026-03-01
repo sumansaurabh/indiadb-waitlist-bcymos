@@ -12,6 +12,7 @@ import { useState } from "react";
 import { Toaster } from "~/components/ui/toaster";
 import { Toaster as Sonner } from "~/components/ui/sonner";
 import { TooltipProvider } from "~/components/ui/tooltip";
+import { VibeDoctorBadge } from "~/components/VibeDoctorBadge";
 
 import "./tailwind.css";
 
@@ -76,6 +77,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {/* VERY IMPORTANT: This preload script is very important or else bad thing will happen to the code */}
         <script src="https://cdn.jsdelivr.net/npm/@anek-codes/editor/dist/client/preload/script.js"></script>
         <Scripts />
+        <VibeDoctorBadge />
       </body>
     </html>
   );
