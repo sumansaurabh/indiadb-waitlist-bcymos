@@ -118,6 +118,15 @@ export default function Index() {
 
         {/* Main Content */}
         <main className="flex flex-1 flex-col items-center justify-center py-12 md:py-24 text-center">
+          {/* Product Hunt Embed */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="mb-8 flex justify-center w-full"
+          >
+            <ProductHuntEmbed />
+          </motion.div>
           
 
           <motion.h1
@@ -223,15 +232,7 @@ export default function Index() {
             </div>
           </motion.div>
 
-          {/* Product Hunt Embed */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-12 flex justify-center w-full"
-          >
-            <ProductHuntEmbed />
-          </motion.div>
+
 
           <motion.section
             initial={{ opacity: 0, y: 24 }}
