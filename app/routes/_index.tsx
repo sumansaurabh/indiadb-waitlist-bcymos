@@ -6,7 +6,6 @@ import { Loader2, Check, ArrowRight } from "lucide-react";
 import { env } from "~/lib/env.server";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
-import { Badge } from "~/components/ui/badge";
 
 export const meta: MetaFunction = () => {
   return [
@@ -83,22 +82,12 @@ export default function Index() {
     }
   }, [actionData]);
 
-  const features = [
-    {
-      emoji: "🇮🇳",
-      title: "Local Support",
-      description: "Support that speaks your language and understands your timezone.",
-    },
-    {
-      emoji: "⚡",
-      title: "Instant Setup",
-      description: "Spin up a database in seconds. No config hell.",
-    },
-    {
-      emoji: "🤝",
-      title: "Community First",
-      description: "Built for India's developers, by India's developers.",
-    },
+  const indiaBuilderPriorities = [
+    "Data residency within India",
+    "Compliance clarity with Indian regulations",
+    "Support in IST timezone",
+    "Local-friendly billing",
+    "A community that understands Indian builders",
   ];
 
   return (
@@ -269,27 +258,26 @@ export default function Index() {
             </div>
           </motion.section>
 
-          {/* Features Grid */}
+          {/* India-First Priorities */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-3 w-full max-w-4xl"
+            className="mt-20 w-full max-w-4xl rounded-3xl border border-slate-200 bg-white/55 p-6 shadow-xl shadow-amber-50/40 backdrop-blur-md sm:p-8"
           >
-            {features.map((feature, i) => (
-              <div 
-                key={i} 
-                className="group relative overflow-hidden rounded-2xl bg-white/40 p-6 backdrop-blur-sm border border-slate-200 transition-all hover:bg-white/60 hover:shadow-xl hover:shadow-amber-50/50 hover:-translate-y-1"
-              >
-                <div className="mb-4 text-4xl">
-                  {feature.emoji}
-                </div>
-                <h3 className="mb-2 text-lg font-bold text-slate-900 font-ibm">{feature.title}</h3>
-                <p className="text-sm text-slate-600">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
+            <h3 className="text-left text-2xl font-bold text-slate-900 font-ibm sm:text-3xl">
+              Built for India from day one
+            </h3>
+            <ul className="mt-6 space-y-3 text-left">
+              {indiaBuilderPriorities.map((priority) => (
+                <li
+                  key={priority}
+                  className="rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm font-medium text-slate-700 sm:text-base"
+                >
+                  {priority}
+                </li>
+              ))}
+            </ul>
           </motion.div>
 
           <script
@@ -309,7 +297,7 @@ export default function Index() {
 
         <footer className="py-8 text-center text-sm text-slate-500 px-4">
           <p className="mb-2">Since Supabase was blocked in India, India is building its own self-reliant database platform.</p>
-          <p>Made with <span className="text-red-500">❤️</span> in India.</p>
+          <p>Made in India.</p>
           <p>© {new Date().getFullYear()} Snorkell Associates and Co.</p>          
         </footer>
       </div>
