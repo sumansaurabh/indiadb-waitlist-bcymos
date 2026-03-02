@@ -202,11 +202,11 @@ export default function Index() {
                 ) : (
                   <>
                     <div className="mb-6 text-center">
-                      <div className="mx-auto mb-4 inline-flex items-center gap-1.5 rounded-full bg-green-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-green-700 ring-1 ring-green-200">
+                      {/* <div className="mx-auto mb-4 inline-flex items-center gap-1.5 rounded-full bg-green-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-green-700 ring-1 ring-green-200">
                         <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
                         Postgres platform is live!
-                      </div>
-                      <h3 className="text-2xl font-bold text-slate-900 font-ibm">Get Started Now</h3>
+                      </div> */}
+                      <h3 className="text-2xl font-bold text-slate-900 font-ibm">Postgres Platform is now live!</h3>
                       <p className="mt-2 text-sm text-slate-600">
                         Experience India's self-reliant database platform.
                       </p>
