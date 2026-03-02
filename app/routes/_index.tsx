@@ -97,7 +97,7 @@ export default function Index() {
       <div className="relative z-50 border-b border-amber-800 bg-amber-700 py-3 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-4 px-4 sm:flex-row sm:gap-8 lg:px-8">
           <p className="text-center text-sm font-medium sm:text-base">
-            We’re live! India’s dedicated Postgres platform is now open.
+            We’re live(within 24hrs)! India’s dedicated Postgres platform is now open.
           </p>
           <Button
             asChild
