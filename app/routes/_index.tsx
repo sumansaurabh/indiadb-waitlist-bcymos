@@ -2,7 +2,7 @@ import { json, type ActionFunctionArgs, type LinksFunction, type MetaFunction } 
 import { Form, useActionData, useNavigation } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Loader2, Check, ArrowRight } from "lucide-react";
+import { Loader2, Check, ArrowRight, ExternalLink } from "lucide-react";
 import { env } from "~/lib/env.server";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
@@ -96,16 +96,17 @@ export default function Index() {
       {/* Announcement Banner */}
       <div className="relative z-50 border-b border-amber-800 bg-amber-700 py-3 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-4 px-4 sm:flex-row sm:gap-8 lg:px-8">
-          <p className="text-center text-sm font-medium sm:text-base">
-            We’re live(within 24hrs)! India’s dedicated Postgres platform is now open.
+          <p className="text-center text-sm font-medium sm:text-base flex items-center gap-2">
+            <span className="flex h-2 w-2 rounded-full bg-green-400 animate-pulse" />
+            We’re live! India’s dedicated Postgres platform is now open. We launched it in under 24hrs!!
           </p>
           <Button
             asChild
             size="sm"
             className="h-9 bg-white px-6 font-bold text-amber-700 transition-all hover:bg-amber-50 hover:scale-[1.02] active:scale-[0.98]"
           >
-            <a href="https://portal.indbase.co/">
-              Start Building
+            <a href="https://portal.indbase.co/" target="_blank">
+              Start Building <ExternalLink className="ml-2 h-3 w-3" />
             </a>
           </Button>
         </div>
@@ -188,7 +189,7 @@ export default function Index() {
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 font-ibm">You're on the list!</h3>
                     <p className="text-slate-600">
-                      Thanks for joining. We'll notify you as soon as early access opens.
+                      Thanks for joining. We'll notify you as soon as new features launch.
                     </p>
                     <Button 
                       variant="ghost" 
@@ -201,48 +202,71 @@ export default function Index() {
                 ) : (
                   <>
                     <div className="mb-6 text-center">
-                      <h3 className="text-xl font-bold text-slate-900 font-ibm">Join the Waitlist</h3>
+                      <div className="mx-auto mb-4 inline-flex items-center gap-1.5 rounded-full bg-green-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-green-700 ring-1 ring-green-200">
+                        <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+                        Postgres platform is live!
+                      </div>
+                      <h3 className="text-2xl font-bold text-slate-900 font-ibm">Get Started Now</h3>
                       <p className="mt-2 text-sm text-slate-600">
-                        Be the first to experience the database built for you.
+                        Experience India's self-reliant database platform.
                       </p>
                     </div>
 
-                    <Form method="post" className="space-y-4" onSubmit={() => setSuccess(false)}>
-                      <div className="space-y-2">
-                        <div className="relative">
-                          <Input
-                            type="email"
-                            name="email"
-                            placeholder="vibe.coder@india.dev"
-                            className="h-12 border-slate-200 bg-white pl-4 text-slate-900 placeholder:text-slate-400 focus:border-amber-400 focus:ring-amber-400/20 shadow-sm"
-                            required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                          />
+                    <div className="space-y-6">
+                      <Button
+                        asChild
+                        className="h-14 w-full bg-amber-600 text-white shadow-lg shadow-amber-200/50 transition-all hover:bg-amber-700 hover:scale-[1.02] active:scale-[0.98] font-bold text-lg"
+                      >
+                        <a href="https://portal.indbase.co/" target="_blank">
+                          Go to Console <ArrowRight className="ml-2 h-5 w-5" />
+                        </a>
+                      </Button>
+
+                      <div className="relative">
+                        <div className="absolute inset-0 flex items-center" aria-hidden="true">
+                          <div className="w-full border-t border-slate-200"></div>
+                        </div>
+                        <div className="relative flex justify-center text-xs uppercase">
+                          <span className="bg-white/50 px-2 text-slate-400 font-medium">Or join the community</span>
                         </div>
                       </div>
-                      <Button
-                        type="submit"
-                        className="h-12 w-full bg-stone-600 text-white shadow-lg shadow-stone-300/30 transition-all hover:bg-stone-700 hover:scale-[1.02] active:scale-[0.98] font-medium"
-                        disabled={isSubmitting}
-                      >
-                        {isSubmitting ? (
-                          <>
-                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                            Joining...
-                          </>
-                        ) : (
-                          <>
-                            Get Early Access <ArrowRight className="ml-2 h-4 w-4" />
-                          </>
+
+                      <Form method="post" className="space-y-4" onSubmit={() => setSuccess(false)}>
+                        <div className="space-y-2">
+                          <div className="relative">
+                            <Input
+                              type="email"
+                              name="email"
+                              placeholder="vibe.coder@india.dev"
+                              className="h-12 border-slate-200 bg-white pl-4 text-slate-900 placeholder:text-slate-400 focus:border-amber-400 focus:ring-amber-400/20 shadow-sm"
+                              required
+                              value={email}
+                              onChange={(e) => setEmail(e.target.value)}
+                            />
+                          </div>
+                        </div>
+                        <Button
+                          type="submit"
+                          variant="outline"
+                          className="h-12 w-full border-slate-200 text-slate-600 transition-all hover:bg-slate-50 font-medium"
+                          disabled={isSubmitting}
+                        >
+                          {isSubmitting ? (
+                            <>
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                              Joining...
+                            </>
+                          ) : (
+                            "Join Waitlist for Updates"
+                          )}
+                        </Button>
+                        {actionData?.error && (
+                          <p className="text-center text-sm text-red-500">{actionData.error}</p>
                         )}
-                      </Button>
-                      {actionData?.error && (
-                        <p className="text-center text-sm text-red-500">{actionData.error}</p>
-                      )}
-                    </Form>
-                    <p className="mt-4 text-center text-xs text-slate-500">
-                      No spam, ever. Unsubscribe anytime.
+                      </Form>
+                    </div>
+                    <p className="mt-6 text-center text-xs text-slate-500">
+                      Build local. Scale global.
                     </p>
                   </>
                 )}
