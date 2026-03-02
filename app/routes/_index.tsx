@@ -114,6 +114,15 @@ export default function Index() {
             <span className="text-xl font-bold tracking-tight text-slate-900 font-ibm">IndBase.in</span>
           </div>
           {/* Nav removed as requested */}
+          <div className="flex items-center gap-2 text-sm">
+            <span className="hidden sm:inline text-slate-600">Your database has been launched.</span>
+            <a 
+              href="/login" 
+              className="font-semibold text-amber-700 hover:text-amber-800 hover:underline decoration-2 underline-offset-2"
+            >
+              Click here to Sign In
+            </a>
+          </div>
         </header>
 
         {/* Main Content */}
