@@ -93,6 +93,24 @@ export default function Index() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-white text-slate-900 selection:bg-amber-100 selection:text-amber-900 font-sans">
+      {/* Announcement Banner */}
+      <div className="relative z-50 border-b border-amber-800 bg-amber-700 py-3 text-white">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-4 px-4 sm:flex-row sm:gap-8 lg:px-8">
+          <p className="text-center text-sm font-medium sm:text-base">
+            We’re live! India’s dedicated Postgres platform is now open.
+          </p>
+          <Button
+            asChild
+            size="sm"
+            className="h-9 bg-white px-6 font-bold text-amber-700 transition-all hover:bg-amber-50 hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <a href="https://portal.indbase.co/">
+              Start Building
+            </a>
+          </Button>
+        </div>
+      </div>
+
       {/* Background Gradients - Adjusted for White Theme */}
       <div className="absolute top-[-20%] left-[-10%] h-[600px] w-[600px] rounded-full bg-amber-50/60 blur-[100px]" />
       <div className="absolute bottom-[-20%] right-[-10%] h-[600px] w-[600px] rounded-full bg-amber-100/60 blur-[100px]" />
