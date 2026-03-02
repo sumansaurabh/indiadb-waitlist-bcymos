@@ -101,7 +101,20 @@ export default function Index() {
       {/* Grid Pattern Overlay - Darker for visibility on white */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-12 sm:px-6 lg:px-8">
+      {/* Top Banner */}
+      <div className="relative z-50 w-full bg-amber-700 px-4 py-3 text-white shadow-md sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-5xl items-center justify-center gap-2 text-center text-sm font-medium">
+          <span>🚀 We have launched!</span>
+          <a 
+            href="/login" 
+            className="underline decoration-2 underline-offset-2 hover:text-amber-100"
+          >
+            Click here to Sign In
+          </a>
+        </div>
+      </div>
+
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-6 sm:px-6 lg:px-8">
         {/* Header / Nav */}
         <header className="flex items-center justify-between py-6">
           <div className="flex items-center gap-2">
@@ -114,15 +127,6 @@ export default function Index() {
             <span className="text-xl font-bold tracking-tight text-slate-900 font-ibm">IndBase.in</span>
           </div>
           {/* Nav removed as requested */}
-          <div className="flex items-center gap-2 text-sm">
-            <span className="hidden sm:inline text-slate-600">Your database has been launched.</span>
-            <a 
-              href="/login" 
-              className="font-semibold text-amber-700 hover:text-amber-800 hover:underline decoration-2 underline-offset-2"
-            >
-              Click here to Sign In
-            </a>
-          </div>
         </header>
 
         {/* Main Content */}
@@ -156,7 +160,7 @@ export default function Index() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mb-12 max-w-2xl text-lg text-slate-600 md:text-xl font-sans"
           >
-            Postgres Development Platform for Indian users.
+            We have launched beta for the first 20 users we have signed up.
           </motion.p>
 
           {/* Waitlist Form Card */}
