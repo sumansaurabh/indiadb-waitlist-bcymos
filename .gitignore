@@ -36,4 +36,4 @@ build
 *.sln
 *.sw?
 
-.pnpm-store
+.pnpm-storeydoctor_plan_*
